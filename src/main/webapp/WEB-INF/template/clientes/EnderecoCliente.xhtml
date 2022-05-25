@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:dataTable value="#{cadastroClienteBean.endereco}" var="endereco" id="tabelaEndereco" style="margin-top: 10px">
+		<p:column headerText="Logradouro">
+			<p:autoComplete  size="40" maxlength="60" styleClass="logradouro-tabela" />
+		</p:column>
+		<p:column headerText="Número" style="text-align: center; width: 60px">
+			<p:inputText size="6" maxlength="10"/>
+		</p:column>
+		<p:column headerText="Complemento" style="text-align: center; width: 200px">
+			<p:inputText size="20" maxlength="40"/>
+		</p:column>
+		<p:column headerText="Bairro" style="text-align: center; width: 200px">
+			<p:inputText size="30" maxlength="50"/>
+		</p:column>
+		<p:column headerText="CEP" style="text-align: center; width: 80px">
+			<p:inputText size="10" maxlength="20"/>
+		</p:column>
+		<p:column headerText="Cidade/UF" style="text-align: left; width: 250px">
+			<p:inputText size="30" maxlength="50"/>
+		</p:column>
+   		<p:column style="width: 80px; text-align: center">
+   			<p:button icon="ui-icon-pencil" title="Editar" />
+   			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()" />
+   		</p:column>
+	</p:dataTable>
+	
+	<p:confirmDialog header="Exclusão de produto" message="Tem certeza que deseja excluir o produto?"
+		widgetVar="confirmacaoExclusao">
+		<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
+		<p:commandButton value="Sim" oncomplete="confirmacaoExclusao.hide();" />
+	</p:confirmDialog>
+	
+  	
+</ui:composition>

@@ -1,0 +1,107 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Módulo Clientes</ui:define>
+    
+    <ui:define name="corpo">
+    	<h:form>
+    		<h1>Módulo Clientes</h1>
+
+			<style>
+				.sem-bordas td {
+					border: none;
+					padding: 5px;
+				}
+		
+			.cel-radio td {
+				text-align: center;
+				}
+			</style>
+    	
+    		<p:toolbar style="margin-top: 20px">
+    			<p:toolbarGroup>
+    				<p:button value="Novo" outcome="/clientes/CadastroCliente"/>
+    				<p:commandButton value="Salvar" id="botaoSalvar"/>
+    			</p:toolbarGroup>
+    			<p:toolbarGroup align="right">
+    				<p:button value="Pesquisa" outcome="/clientes/PesquisaClientes"/>
+    			</p:toolbarGroup>
+    		</p:toolbar>
+    	
+   		 	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+    				columnClasses="rotulo, campo">
+    		
+    			<p:outputLabel value="Nome" for="nome"/>
+    			<p:inputText id="nome" size="60" maxlength="80"/>
+    			
+				<p:outputLabel value="Tipo Pessoa" for="tipopessoa" />
+				<p:selectOneRadio id="tipopessoa" 
+					styleClass="sem-bordas" layout="inline">
+					<f:selectItem itemLabel="Física" itemValue="F" />
+					<f:selectItem itemLabel="Jurídica" itemValue="J" />
+				</p:selectOneRadio>
+			
+				<p:outputLabel value="CPF/CNPJ" for="cpfcnpj"/>
+    			<p:inputText id="cpfcnpj" size="20" maxlength="40"/>
+
+    			<p:outputLabel value="E-mail" for="email"/>
+    			<p:inputText id="email" size="40" maxlength="80"/>
+    		
+    		</p:panelGrid>
+    		
+			 <p:commandButton value="Adicionar Endereço" id="botaoAdcEnd" style="margin-top: 20px"
+         		onclick="novoEndereco.show()" />
+         		         	 		
+	 		<ui:include src="/WEB-INF/template/clientes/EnderecoCliente.xhtml" />
+
+   			<p:dialog header="Novo Endereço" widgetVar="novoEndereco">
+				<p:panelGrid columns="4" id="painel2" style="width: 70%; margin-top: 20px"
+	    				columnClasses="rotulo, campo, rotulo, campo">
+						
+						<p:outputLabel value="Logradouro" for="logradouro"/>
+						<p:inputText colspan="3" id="logradouro" size="60" maxlength="80"/>
+						
+						<p:spacer styleClass="sem-bordas"/>
+						<p:spacer styleClass="sem-bordas"/>
+						
+						<p:outputLabel value="Número" for="numero"/>
+						<p:inputText id="numero" size="6" maxlength="10"/>
+						
+						<p:spacer />
+						<p:spacer />
+					
+						<p:outputLabel value="Complemento" for="complemento"/>
+						<p:inputText id="complemento" size="20" maxlength="40"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="Bairro" for="bairro"/>
+						<p:inputText id="bairro" size="30" maxlength="50"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="CEP" for="cep"/>
+						<p:inputText id="cep" size="10" maxlength="20"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="Cidade" for="cidade"/>
+						<p:inputText id="cidade" size="30" maxlength="50"/>
+						<p:outputLabel value="UF" for="uf"/>
+						<p:inputText id="uf" size="2" maxlength="4"/>
+			
+	    		</p:panelGrid>
+    				<p:commandButton type="button" value="Incluir" />
+			</p:dialog>
+			
+    	</h:form>
+
+    </ui:define>
+</ui:composition>

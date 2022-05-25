@@ -1,0 +1,54 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Novo Usuário</ui:define>
+    
+    <ui:define name="corpo">
+    	<h1>Novo Usuário</h1>
+    	
+    	<p:toolbar style="margin-top: 20px">
+    		<p:toolbarGroup>
+    			<p:button value="Novo" outcome="/usuarios/CadastroUsuario"/>
+    			<p:commandButton value="Salvar" id="botaoSalvar"/>
+    		</p:toolbarGroup>
+    		<p:toolbarGroup align="right">
+    			<p:button value="Pesquisa" outcome="/usuarios/PesquisaUsuarios"/>
+    		</p:toolbarGroup>
+    	</p:toolbar>
+    	
+    	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+    			columnClasses="rotulo, campo">
+    		
+    		<p:outputLabel value="Nome" for="nome"/>
+    		<p:inputText id="nome" size="60" maxlength="80"/>
+    		
+    		<p:outputLabel value="E-mail" for="email"/>
+    		<p:inputText id="email" size="40" maxlength="80"/>
+    		
+    		<p:outputLabel value="Senha" />
+    		<p:password size="20" />
+
+		</p:panelGrid>
+    	
+    	<p:selectOneMenu id="Grupo" style="width: 20%; margin-top: 20px">
+        	<f:selectItem itemLabel="Selecione" />
+            <f:selectItem itemLabel="Administrador" />
+       	</p:selectOneMenu>
+
+	    <p:dataTable id="gruposTable" value="#{pesquisaGruposBean.gruposFiltrados}" var="grupo"
+	    	style="margin-top: 20px" emptyMessage="Usuário não pertence a nenhum grupo ainda." rows="20">
+
+	    	<p:column headerText="Grupo">
+	    		<h:outputText value="Usuário" />
+	    	</p:column>
+	    	<p:column style="width: 100px; text-align: center">
+	    		<p:commandButton icon="ui-icon-trash" title="Excluir" />
+	    	</p:column>
+	    </p:dataTable>
+    
+    </ui:define>
+</ui:composition>

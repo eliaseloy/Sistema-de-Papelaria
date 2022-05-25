@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+   			<p:dialog header="Novo Endereço" widgetVar="novoEndereco">
+				<p:panelGrid columns="4" id="painel" style="width: 70%; margin-top: 20px"
+	    				columnClasses="rotulo, campo, rotulo, campo">
+						
+						<p:outputLabel value="Logradouro" for="logradouro"/>
+						<p:inputText colspan="3" id="logradouro" size="60" maxlength="80"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="Número" for="numero"/>
+						<p:inputText id="numero" size="6" maxlength="10"/>
+						
+						<p:spacer />
+						<p:spacer />
+					
+						<p:outputLabel value="Complemento" for="complemento"/>
+						<p:inputText id="complemento" size="20" maxlength="40"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="Bairro" for="bairro"/>
+						<p:inputText id="bairro" size="30" maxlength="50"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="CEP" for="cep"/>
+						<p:inputText id="cep" size="10" maxlength="20"/>
+						
+						<p:spacer />
+						<p:spacer />
+						
+						<p:outputLabel value="Cidade" for="cidade"/>
+						<p:inputText id="cidade" size="30" maxlength="50"/>
+						<p:outputLabel value="UF" for="uf"/>
+						<p:inputText id="uf" size="2" maxlength="4"/>
+			
+	    		</p:panelGrid>
+    				<p:commandButton type="button" value="Incluir" />
+			</p:dialog>
+    	
+</ui:composition>
