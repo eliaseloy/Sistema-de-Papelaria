@@ -36,7 +36,7 @@
     				columnClasses="rotulo, campo">
     		
     			<p:outputLabel value="Nome" for="nome"/>
-    			<p:inputText id="nome" size="60" maxlength="80"/>
+    			<p:inputText id="nome" size="60" maxlength="80" value="#{cadastroClienteBean.cliente.nome}" />
     			
 				<p:outputLabel value="Tipo Pessoa" for="tipopessoa" />
 				<p:selectOneRadio id="tipopessoa" 
@@ -46,10 +46,12 @@
 				</p:selectOneRadio>
 			
 				<p:outputLabel value="CPF/CNPJ" for="cpfcnpj"/>
-    			<p:inputText id="cpfcnpj" size="20" maxlength="40"/>
+    			<p:inputText id="cpfcnpj" size="20" maxlength="40"
+    			 value="#{cadastroClienteBean.cliente.documentoReceitaFederal}" />
 
     			<p:outputLabel value="E-mail" for="email"/>
-    			<p:inputText id="email" size="40" maxlength="80"/>
+    			<p:inputText id="email" size="40" maxlength="80"
+    			  value="#{cadastroClienteBean.cliente.email}" />
     		
     		</p:panelGrid>
     		
@@ -63,10 +65,10 @@
 	    				columnClasses="rotulo, campo, rotulo, campo">
 						
 						<p:outputLabel value="Logradouro" for="logradouro"/>
-						<p:inputText colspan="3" id="logradouro" size="60" maxlength="80"/>
+						<p:inputText colspan="3" id="logradouro" size="60" maxlength="80" />
 						
-						<p:spacer styleClass="sem-bordas"/>
-						<p:spacer styleClass="sem-bordas"/>
+						<p:spacer />
+						<p:spacer />
 						
 						<p:outputLabel value="Número" for="numero"/>
 						<p:inputText id="numero" size="6" maxlength="10"/>

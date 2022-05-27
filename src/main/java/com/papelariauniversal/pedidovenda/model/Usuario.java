@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "usuario")
@@ -31,30 +34,40 @@ public class Usuario implements Serializable {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
+	@NotBlank 
+	@Size(max = 150)
 	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
+	@NotBlank 
+	@Size(max = 150)
 	@Column(nullable = false, unique = true, length = 255)
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
+	@NotBlank 
+	@Size(max = 30)
 	@Column(nullable = false, length = 20)
 	public String getSenha() {
 		return senha;
 	}
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
@@ -65,6 +78,7 @@ public class Usuario implements Serializable {
 	public List<Grupo> getGrupos() {
 		return grupos;
 	}
+	
 	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
 	}

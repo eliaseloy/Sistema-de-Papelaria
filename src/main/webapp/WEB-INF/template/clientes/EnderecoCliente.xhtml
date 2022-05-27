@@ -4,7 +4,7 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 
-	<p:dataTable value="#{cadastroClienteBean.endereco}" var="endereco" id="tabelaEndereco" style="margin-top: 10px">
+	<p:dataTable value="#{cadastroClienteBean.enderecos}" var="endereco" id="tabelaEndereco" style="margin-top: 10px">
 		<p:column headerText="Logradouro">
 			<p:autoComplete  size="40" maxlength="60" styleClass="logradouro-tabela" />
 		</p:column>
